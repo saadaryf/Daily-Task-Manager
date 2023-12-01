@@ -38,12 +38,14 @@ function removeLastTaskField() {
 }
 function makeFieldsEditable() {
     const taskFields = tasksTab.querySelectorAll('input');
+    tasksTab.classList.add('editable');
     taskFields.forEach(input =>{
         input.readOnly = false;
     });
 }
 function saveFields() {
     const taskFields = tasksTab.querySelectorAll('input');
+    tasksTab.classList.remove('editable');
     taskFields.forEach((input, index) => {
         localStorage.setItem(`savedTasksData${index}`, input.value);
         input.readOnly = true; 
