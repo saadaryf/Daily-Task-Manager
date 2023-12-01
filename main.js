@@ -59,6 +59,7 @@ function loadSavedTasks() {
     const taskFields = tasksTab.querySelectorAll('input');
     taskFields.forEach((input, index) => {
         input.value = localStorage.getItem(`savedTasksData${index}`);
+        input.readOnly = true; 
     });
 }
 
