@@ -105,10 +105,20 @@ h1{
     font-weight: 100;
     color: gray
 }
+#dev{
+    position: fixed;
+    right: 1.5vw;
+    top: 1.5vw;
+    cursor: pointer;
+    z-index: 5;
+}
+#dev img{
+    width: 0.9em;
+}
 /* responsive */
 
 @media (max-width: 767px) {
     body{
-        font-size: 15px;
+        font-size: 20px;
     }
 }

@@ -3,6 +3,7 @@ const addButton = document.getElementById('add-task-button');
 const removeButton = document.getElementById('remove-task-button');
 const editButton = document.getElementById('edit-tasks-button');
 const saveButton = document.getElementById('save-tasks-button');
+const devButton = document.getElementById('dev');
 
 document.addEventListener('DOMContentLoaded', loadSavedTasks);
 document.addEventListener('DOMContentLoaded', updateDate);
@@ -12,6 +13,7 @@ addButton.addEventListener('click', addAnotherTaskField);
 removeButton.addEventListener('click', removeLastTaskField);
 editButton.addEventListener('click', makeFieldsEditable);
 saveButton.addEventListener('click', saveFields);
+devButton.addEventListener('click', showDevInfo);
 
 let unsavedChanges = false;
 const initialFieldCount = localStorage.getItem('fieldCount') || 3;
@@ -82,4 +84,11 @@ function updateDate() {
     const month = currentDate.toLocaleDateString('en-US', { month: 'short' });
 
     dateField.textContent = `${day} ${month}`; 
+}
+function showDevInfo(){
+    const github = 'https://github.com/saadaryf';
+    const name = 'Saad Arif';
+    const email = 'saadaryf@gmail.com'
+    const alertMessage = 'Name: ' + name + '\nEmail: ' + email + '\nGitHub: ' + github;
+    alert(alertMessage);
 }
