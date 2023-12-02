@@ -8,6 +8,9 @@ Listing Daily tasks to remeber easily
 - Save Tasks
 - Auto Update Date
 
+## Instruction
+  Use one same browser everytime because it dont have backend and saves data locally.
+
 ## Screenshots
 ![ Screenshot: Main Page ](Screenshot.png)
 
