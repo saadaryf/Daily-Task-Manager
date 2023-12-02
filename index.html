@@ -20,18 +20,7 @@
             <button id="edit-tasks-button" title="Edit Tasks"><img src="svg/pen-clip.svg" alt="edit"></button>
             <button id="save-tasks-button" title="Save Tasks"><img src="svg/bookmark.svg" alt="save"></button>
         </div>
-    </main>
-    <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-              console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch(error => {
-              console.error('Service Worker registration failed:', error);
-            });
-        }
-      </script>      
+    </main>    
     <script src="main.js"></script>
 </body>
 </html>
