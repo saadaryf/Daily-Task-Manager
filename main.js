@@ -5,6 +5,7 @@ const editButton = document.getElementById('edit-tasks-button');
 const saveButton = document.getElementById('save-tasks-button');
 
 document.addEventListener('DOMContentLoaded', loadSavedTasks);
+document.addEventListener('DOMContentLoaded', updateDate);
 window.addEventListener('beforeunload', checkForUnsavedChanges);
 
 addButton.addEventListener('click', addAnotherTaskField);
@@ -73,4 +74,12 @@ function checkForUnsavedChanges(event){
         event.returnValue = alert;
         return alert;   
     }
+}
+function updateDate() {
+    const dateField = document.getElementById("date-field");
+    const currentDate = new Date(); 
+    const day = currentDate.toLocaleDateString('en-US', { day: 'numeric' });
+    const month = currentDate.toLocaleDateString('en-US', { month: 'short' });
+
+    dateField.textContent = `${day} ${month}`; 
 }
