@@ -5,11 +5,14 @@ const editButton = document.getElementById('edit-tasks-button');
 const saveButton = document.getElementById('save-tasks-button');
 
 document.addEventListener('DOMContentLoaded', loadSavedTasks);
+window.addEventListener('beforeunload', checkForUnsavedChanges);
+
 addButton.addEventListener('click', addAnotherTaskField);
 removeButton.addEventListener('click', removeLastTaskField);
 editButton.addEventListener('click', makeFieldsEditable);
 saveButton.addEventListener('click', saveFields);
 
+let unsavedChanges = false;
 const initialFieldCount = localStorage.getItem('fieldCount') || 3;
 
 for (let i = 0; i < initialFieldCount; i++) {
@@ -19,7 +22,7 @@ for (let i = 0; i < initialFieldCount; i++) {
 function addAnotherTaskField() {
     const newField = document.createElement('input');
     newField.type = 'text';
-    newField.placeholder = 'new task'; 
+    newField.placeholder = '<empty>'; 
     tasksTab.appendChild(newField);
 
     updateFieldCount();
@@ -42,6 +45,7 @@ function makeFieldsEditable() {
     taskFields.forEach(input =>{
         input.readOnly = false;
     });
+    unsavedChanges = true;
 }
 function saveFields() {
     const taskFields = tasksTab.querySelectorAll('input');
@@ -50,6 +54,7 @@ function saveFields() {
         localStorage.setItem(`savedTasksData${index}`, input.value);
         input.readOnly = true; 
     });
+    unsavedChanges = false;
 }
 function updateFieldCount() {
     const fieldCount = tasksTab.querySelectorAll('input').length;
@@ -62,4 +67,10 @@ function loadSavedTasks() {
         input.readOnly = true; 
     });
 }
-
+function checkForUnsavedChanges(event){
+    if(unsavedChanges){
+        const alert = 'You have unsaved changes. Are you sure you want to leave?';
+        event.returnValue = alert;
+        return alert;   
+    }
+}
