@@ -6,6 +6,7 @@ Listing Daily tasks to remeber easily
 - Remove Task
 - Edit Tasks
 - Save Tasks
+- Auto Update Date
 
 ## Screenshots
 ![ Screenshot: Main Page ](Screenshot.png)
