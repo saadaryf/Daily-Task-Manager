@@ -22,6 +22,18 @@
             <button id="save-tasks-button" title="Save Tasks"><img src="svg/bookmark.svg" alt="save"></button>
         </div>
     </main>    
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.error('Service Worker registration failed:', error);
+            });
+        }
+      </script>      
     <script src="main.js"></script>
 </body>
 </html>
