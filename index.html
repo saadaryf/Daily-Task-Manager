@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>DailyTaskManager</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>DailyTaskManager</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+  <div id="app-shell">
     <div id="dev"><img src="svg/user.svg" alt=""></div>
     <main>
-        <h1>Task Manager</h1>
-        <div id="date-field"></div>
+      <h1>Task Manager</h1>
+      <div id="date-field"></div>
 
-        <div class="tasks-tab">
-            <!-- task fields are being added/removed in main.js  -->
-        </div>
-        <div class="menu">
-            <button id="edit-tasks-button" title="Edit Tasks"><img src="svg/pen-clip.svg" alt="edit"></button>
-            <button id="add-task-button" title="Add Task"><img src="svg/plus.svg" alt="add"></button>
-            <button id="remove-task-button" title="Remove Task"><img src="svg/trash.svg" alt="remove"></button>
-            <button id="save-tasks-button" title="Save Tasks"><img src="svg/bookmark.svg" alt="save"></button>
-        </div>
-    </main>    
+      <div class="tasks-tab">
+        <!-- task fields are being added/removed in main.js  -->
+      </div>
+      <div class="menu">
+        <button id="edit-tasks-button" title="Edit Tasks"><img src="svg/pen-clip.svg" alt="edit"></button>
+        <button id="add-task-button" title="Add Task"><img src="svg/plus.svg" alt="add"></button>
+        <button id="remove-task-button" title="Remove Task"><img src="svg/trash.svg" alt="remove"></button>
+        <button id="save-tasks-button" title="Save Tasks"><img src="svg/bookmark.svg" alt="save"></button>
+      </div>
+    </main>
+  </div>
+  <script>
+// Example of loading tasks dynamically
+function loadTasks() {
+    // Fetch tasks from a server or use local storage
+    // Update the tasks-tab in the app shell
+}
 
-    <script>
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('service-worker.js')
-            .then((registration) => {
-              console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch((error) => {
-              console.error('Service Worker registration failed:', error);
-            });
-        }
-      </script>      
-    <script src="main.js"></script>
+// Call the function when the page is loaded
+window.onload = loadTasks;
+
+  </script>
+
+  <script src="main.js"></script>
 </body>
+
 </html>
