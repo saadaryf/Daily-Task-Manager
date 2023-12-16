@@ -5,9 +5,9 @@ self.addEventListener('install', (event) => {
     caches.open(cacheName).then((cache) => {
       return cache.addAll([
         '/',
-        '/index.html',
-        '/main.js',
-        '/svg/*'
+        'index.html',
+        'main.js',
+        'svg/*'
       ]);
     })
   );
